@@ -1,0 +1,2 @@
+export { XLogo } from './Svgs'; 
+

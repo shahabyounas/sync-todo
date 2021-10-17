@@ -1,3 +1,39 @@
 .todoList {
     background-color: var(--primary100);
+    margin: 1rem;
+    border-radius: var(--radius-xl);
+    height: 95%;
+
+    &-container {
+        display: flex;
+    }
+
+    &__form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1;
+    }
+
+    &__image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        height: 95vh;
+    }
+
+    &__logo {
+        padding: 1rem;
+        font-weight: bolder;
+    }
+
+    &__image {
+        align-self: flex-start;
+        border-radius: var(--radius-xl);
+    }
+
+    &__x-logo {
+        padding: 1rem;
+        margin-top: auto;
+    }
 }
