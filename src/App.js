@@ -1,4 +1,5 @@
 import './App.css';
+import './assets/styles/index.scss'
 import TodoList from './pages/todoList'
 
 function App() {

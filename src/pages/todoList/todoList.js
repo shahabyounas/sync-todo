@@ -4,7 +4,12 @@ import './todoList.scss'
 
 const TodoList = () => {
     return <div className="todoList">
-         Hello </div>
+        <div>
+            <div> Sync </div>
+        </div>
+
+
+         </div>
 }
 
 export default TodoList;
