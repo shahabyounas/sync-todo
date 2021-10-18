@@ -1,6 +1,7 @@
 import React from 'react';
 import packagingImg from '../../assets/images/packaging.png'
 import { XLogo } from '../../components/Svgs';
+import TodoForm from '../../components/TodoForm/TodoForm';
 import './todoList.scss'
 
 
@@ -14,8 +15,8 @@ const TodoList = () => {
                 </div>
 
                 <div className="todoList__form">
-                    Hello
-            </div>
+                    <TodoForm />
+                </div>
 
             </div>
 
