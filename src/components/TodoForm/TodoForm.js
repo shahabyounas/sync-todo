@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import TodoContext from '../../context/todo-context'
 import { Plus } from '../../components/Svgs';
 import './todoForm.scss'
 
 const TodoForm = () => {
 
     const [itemText, setItemText ] = useState('');
+    const { items, setItems } = useContext(TodoContext);
+
 
     const inputTexHandler = (e) => {
         setItemText(e.target.value);
