@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
+import { nanoid } from 'nanoid'
 import TodoContext from '../../context/todo-context'
+import { TODO_ITEM_STATUSES } from '../../constants';
 import { Plus } from '../../components/Svgs';
-import './todoForm.scss'
+import './todo-form.scss'
 
 const TodoForm = () => {
 
@@ -11,6 +13,16 @@ const TodoForm = () => {
 
     const inputTexHandler = (e) => {
         setItemText(e.target.value);
+    }
+
+    const addItemHandler = () => {
+        const item = {
+            id: nanoid(),
+            title: itemText,
+            status: TODO_ITEM_STATUSES.PENDING,
+        }
+        setItems([...items, ...[item] ]);
+        setItemText('');
     }
 
 
@@ -34,7 +46,8 @@ const TodoForm = () => {
 
             <div>
                 <button className={`bold center-element todo-form__add-btn ${!itemText.length && 'todo-form__add-btn--disabled'}`} 
-                        disabled={!itemText.length} >
+                        disabled={!itemText.length}
+                        onClick={() => addItemHandler()}>
                     <span> Add </span>
                     <Plus />
                 </button>

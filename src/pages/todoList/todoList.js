@@ -1,8 +1,9 @@
 import React from 'react';
 import packagingImg from '../../assets/images/packaging.png'
-import { XLogo } from '../../components/Svgs';
 import TodoForm from '../../components/TodoForm/TodoForm';
-import './todoList.scss'
+import { XLogo } from '../../components/Svgs';
+import './todo-list.scss'
+import TodoContainer from '../../components/TodoContainer';
 
 
 const TodoList = () => {
@@ -16,6 +17,11 @@ const TodoList = () => {
 
                 <div className="todoList__form">
                     <TodoForm />
+                </div>
+
+                <div className="todoList__block"> 
+
+                    <TodoContainer />
                 </div>
 
             </div>
