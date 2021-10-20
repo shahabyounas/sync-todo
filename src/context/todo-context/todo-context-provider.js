@@ -5,7 +5,7 @@ import TodoContext from './todo-context';
 
 function TodoProvider({ children }) {
 
-    const [items, setItems ] = useState([1,2,4]);
+    const [items, setItems ] = useState([]);
 
   return (
     <TodoContext.Provider value={{ items, setItems }}>

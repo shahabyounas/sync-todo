@@ -1,9 +1,20 @@
 
 
+
+$white100: #ffffff;
 $grey100: #EAEBEF;
+$grey200: #707070;
+$grey300: #1D1D28;
+$grey400: #1D1D28;
 $black100: #1D1D28;
+$green100: #4FAE32;
 
 :root {
     --primary100: #{$grey100};
     --black100: #{$black100};
+    --green100: #{$green100};
+    --white100: #{$white100};
+    --grey200: #{$grey200};
+    --grey300: #{$grey300};
+    --border-color: #{$grey200};
 }
