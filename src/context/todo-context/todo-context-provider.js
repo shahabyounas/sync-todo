@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import TodoContext from './todo-context';
+import { TODO_ITEM_STATUSES } from '../../constants';
 
 
 function TodoProvider({ children }) {
@@ -11,8 +12,18 @@ function TodoProvider({ children }) {
       setItems(items.filter(item => item.id !== id));
     }
 
+    const updateItem = (id) => {
+      setItems(items.map(item => {
+        if(item.id === id) {
+          item.status = TODO_ITEM_STATUSES.COMPLETED;
+          return item
+        }
+        return item;
+      }));
+    }
+
   return (
-    <TodoContext.Provider value={{ items, setItems, deleteItem }}>
+    <TodoContext.Provider value={{ items, setItems, deleteItem, updateItem }}>
       {children}
     </TodoContext.Provider>
   );
