@@ -76,6 +76,7 @@
     &__delete {
         color: var(--grey300);
         text-decoration: underline;
+        cursor: pointer;
         visibility: hidden;
     }
 }

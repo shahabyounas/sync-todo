@@ -7,8 +7,12 @@ function TodoProvider({ children }) {
 
     const [items, setItems ] = useState([]);
 
+    const deleteItem = (id) => {
+      setItems(items.filter(item => item.id !== id));
+    }
+
   return (
-    <TodoContext.Provider value={{ items, setItems }}>
+    <TodoContext.Provider value={{ items, setItems, deleteItem }}>
       {children}
     </TodoContext.Provider>
   );

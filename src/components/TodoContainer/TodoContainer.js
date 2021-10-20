@@ -5,7 +5,7 @@ import './todo-container.scss'
 
 const TodoContainer = () => {
 
-    const { items } = useContext(TodoContext);
+    const { items, deleteItem } = useContext(TodoContext);
 
     return <div className="todo-container">
         <div className="todo-container__header">
@@ -19,10 +19,16 @@ const TodoContainer = () => {
                     <div className="todo-container__item">
                         <div className="center-element">
                             <div className="todo-container__checkbox"> <input type="checkbox" /> </div>
-                            <div className="todo-container__title">{item.title?.length > 30 ? `${item.title?.slice(0, 30)} ...` : item.title} </div>
+                            <div className="todo-container__title">{item.title?.length > 25 ? `${item.title?.slice(0, 25)} ...` : item.title} </div>
                         </div>
                         <div>
-                            <small className="todo-container__delete"> Delete </small>
+                            <small 
+                                className="todo-container__delete" 
+                                onClick={() => deleteItem(item.id)}
+                                tabIndex="0"
+                                role="button"> 
+                                Delete
+                            </small>
                         </div>
                     </div>
                 )
