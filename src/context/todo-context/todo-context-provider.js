@@ -7,6 +7,7 @@ import { TODO_ITEM_STATUSES } from '../../constants';
 function TodoProvider({ children }) {
 
     const [items, setItems ] = useState([]);
+    const [filter, setFilter] = useState(TODO_ITEM_STATUSES.ALL);
 
     const deleteItem = (id) => {
       setItems(items.filter(item => item.id !== id));
@@ -23,7 +24,7 @@ function TodoProvider({ children }) {
     }
 
   return (
-    <TodoContext.Provider value={{ items, setItems, deleteItem, updateItem }}>
+    <TodoContext.Provider value={{ items, setItems, deleteItem, updateItem, filter, setFilter }}>
       {children}
     </TodoContext.Provider>
   );

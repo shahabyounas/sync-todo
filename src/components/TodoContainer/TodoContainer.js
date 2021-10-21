@@ -1,21 +1,41 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { TODO_ITEM_STATUSES } from '../../constants';
 import TodoContext from '../../context/todo-context';
+import DropDown from '../Dropdown';
 import './todo-container.scss'
 
 
 const TodoContainer = () => {
 
-    const { items, deleteItem, updateItem } = useContext(TodoContext);
+    const { items, deleteItem, updateItem, filter, setFilter } = useContext(TodoContext);
+
+    const menus = [
+        {
+            id:"1", 
+            label: 'ALL',
+            filter: TODO_ITEM_STATUSES.ALL,
+        },
+        {
+            id:"2", 
+            label: 'NOT COMPLETED',
+            filter: TODO_ITEM_STATUSES.PENDING,
+        },
+        {
+            id:"3", 
+            label: 'COMPLETED',
+            filter: TODO_ITEM_STATUSES.COMPLETED,
+        }
+    ]
+ 
 
     return <div className="todo-container">
         <div className="todo-container__header">
             <div>  <strong> To do list </strong></div>
-            <div className="text-uppercase"> <strong> All Item </strong> </div>
+            <div>  <DropDown items={menus} itemSelectHandler={(id) => setFilter(menus.find(m => m.id === id).filter)}  />  </div>
         </div>
 
         <div className="todo-container__list">
-            {items.map((item) => {
+            {( filter === TODO_ITEM_STATUSES.ALL ? items : items.filter(t => t.status === filter)).map((item) => {
                 const isCompleted = item.status === TODO_ITEM_STATUSES.COMPLETED;
                 return (
                     <div className="todo-container__item">

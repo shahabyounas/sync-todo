@@ -1,0 +1,43 @@
+    .dropdown {
+    width: 130px;
+    font-weight: bold;
+    position: relative;
+
+    &__header {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__body {
+      margin-top: 1rem;
+      width: 150px;
+      border-radius: 1.5rem;
+      box-shadow: 0px 2px 10px 0px #00000026;
+      display: none;
+      position: absolute;
+      overflow: hidden;
+
+      &--open {
+        display: block;
+      }
+    }
+
+
+    &__item {
+      font-size: 14px;
+      padding: 10px 12px;
+      text-align: start;
+
+      &:hover {
+        cursor: pointer;
+        background-color: var(--secondary100);
+      }
+
+      &--selected {
+        color: var(--blue100);
+      }
+    }
+  }
+  
