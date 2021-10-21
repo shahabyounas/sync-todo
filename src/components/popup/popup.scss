@@ -1,0 +1,23 @@
+.popup {
+
+    &__bg {
+        position: fixed;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.6);
+        transition: 4s;
+    }
+
+    &__body {
+        position: fixed;
+        padding: 1.5rem 2rem;
+        right: 50%;
+        top: 30%;
+        width: 25%;
+        background-color: var(--white100);
+        border-radius: var(--radius-xl);
+    }
+
+}

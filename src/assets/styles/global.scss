@@ -10,6 +10,18 @@
     margin-top: 4rem;
 }
 
+.my-5 {
+    margin: 1rem 0;
+}
+
+.mt-2 {
+    margin-top: 0.4rem;
+}
+
+.mx-2 {
+    margin: 0 0.5rem;
+}
+
 
 .center-element {
     display: flex;
@@ -19,4 +31,21 @@
 
 .text-uppercase {
     text-transform: uppercase;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.fz14 {
+    font-size: 14px;
+}
+
+.fz24 {
+    font-size: 24px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

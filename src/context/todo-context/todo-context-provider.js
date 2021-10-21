@@ -23,8 +23,18 @@ function TodoProvider({ children }) {
       }));
     }
 
+    const resetList = () => setItems([]);
+
   return (
-    <TodoContext.Provider value={{ items, setItems, deleteItem, updateItem, filter, setFilter }}>
+    <TodoContext.Provider value={{ 
+      items,
+      setItems, 
+      deleteItem, 
+      updateItem, 
+      filter, 
+      setFilter,
+      resetList,
+      }}>
       {children}
     </TodoContext.Provider>
   );

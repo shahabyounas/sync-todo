@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { TODO_ITEM_STATUSES } from '../../constants';
 import TodoContext from '../../context/todo-context';
+import { Sync } from '../Svgs';
 import DropDown from '../Dropdown';
+import Popup from '../popup/popup';
 import './todo-container.scss'
 
 
 const TodoContainer = () => {
 
-    const { items, deleteItem, updateItem, filter, setFilter } = useContext(TodoContext);
+    const { items, deleteItem, updateItem, filter, setFilter, resetList } = useContext(TodoContext);
+    const [isOpen, setIsOpen] = useState(true);
 
     const menus = [
         {
@@ -26,11 +29,20 @@ const TodoContainer = () => {
             filter: TODO_ITEM_STATUSES.COMPLETED,
         }
     ]
+
+
+    const resetListHandler = () => {
+        resetList();
+        setIsOpen(o => !o);
+    }
  
 
     return <div className="todo-container">
         <div className="todo-container__header">
-            <div>  <strong> To do list </strong></div>
+            <div className="center-element"> 
+                <strong className="fz24"> To do list </strong> 
+                <span className="mx-2 cursor-pointer" onClick={() => setIsOpen(o => !o)} role="button" tabIndex="0"> <Sync /> </span> 
+            </div>
             <div>  <DropDown items={menus} itemSelectHandler={(id) => setFilter(menus.find(m => m.id === id).filter)}  />  </div>
         </div>
 
@@ -49,7 +61,7 @@ const TodoContainer = () => {
                                 />
                             </div>
                             <div className={`todo-container__title ${isCompleted && 'todo-container__title--completed'}`}>
-                                {item.title?.length > 25 ? `${item.title?.slice(0, 25)} ...` : item.title}
+                                {item.title?.length > 40 ? `${item.title?.slice(0, 40)} ...` : item.title}
                             </div>
                         </div>
                         <div>
@@ -63,6 +75,24 @@ const TodoContainer = () => {
                 )
             })}
         </div>
+
+        {isOpen && <Popup isOpen={isOpen}>
+            <div className="flex-column">
+
+                <strong className="text-start bold">Start a New List </strong>
+                <p className="bold text-start fz14"> When you start a new list, your existing list will be deleted.
+                    Would you like to start a new list? </p>
+                
+                <div className="mt-2 text-start">
+                    <button className="todo-container__popup__button"  onClick={() => resetListHandler()}> Start New List </button>
+                    <button 
+                        className="todo-container__popup__button todo-container__popup__button--close" 
+                        onClick={() => setIsOpen(o => !o)}>
+                         Keep existing 
+                    </button>
+                </div>
+            </div>
+        </Popup> }
     </div>
 };
 
